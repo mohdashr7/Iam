@@ -1,0 +1,410 @@
+:root{
+    --background:#0F0F10;
+    --seconde_background:#1A1A1D;
+    --text:#F2F2F2;
+    --seconde_text:#BDBDBD;
+    --button:#2B2B2E;
+    --hover:#5C5CFF;
+    --linked:#CCCCCC;
+}
+body{
+    background-color: var(--background);
+    font-family: 'Cairo', sans-serif;
+    color: var(--text);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* لضمان أن الحشوة والحدود لا تزيد من الحجم الكلي للعنصر */
+}
+
+/* Navigation Bar */
+nav ul{
+    list-style: none;
+    margin:0;
+    padding: 0;
+    background-color: var(--seconde_background);
+    height: 70px;
+    width: 100%;
+    font-size: larger;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* توسيط عمودي */
+    gap: 20px;
+    flex-wrap: wrap; /* للسماح للعناصر بالانتقال إلى سطر جديد في الشاشات الصغيرة */
+}
+nav ul a {
+    text-decoration: none; 
+    color: var(--text);
+    padding: 10px 15px; /* إضافة حشوة لجعل الروابط أسهل للنقر */
+    transition: color 0.3s ease;
+}
+nav ul a:hover {
+    color: var(--hover);
+}
+
+/* Language Toggle Button */
+.language-btn {
+    padding: 8px 16px;
+    background-color: var(--button); 
+    color: var(--seconde_text);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+.language-btn:hover {
+    background-color: var(--hover); 
+}
+
+/* About Section */
+.about {
+    padding: 40px 20px;
+    text-align: center;
+}
+.hero{
+    font-size: 100px;
+    opacity: 1;
+    animation: fadeIn 5s ease-in;
+    margin-bottom: 20px;
+}
+.verhaal{
+    animation: fadeIn 10s ease-in;
+    margin-bottom: 40px;
+}
+.who {
+    animation-duration: 3s;
+    animation-name: slide-in;
+    margin-top: 50px; /* تقليل الهامش العلوي */
+    margin-bottom: 30px;
+    font-size: 1.2em; /* حجم خط مناسب */
+    max-width: 800px; /* تحديد أقصى عرض للنص */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bac {
+    padding: 20px; 
+    border-radius: 8px;
+    margin: 30px auto; /* توسيط العنصر */
+    text-align: center; 
+    max-width: 900px; /* تحديد أقصى عرض */
+}
+
+.icons-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* زيادة المسافة بين الأيقونات */
+    flex-wrap: wrap; /* للسماح للأيقونات بالانتقال إلى سطر جديد */
+}
+
+.bac img {
+    height: 90px;
+    transition: transform 0.3s ease; 
+}
+.bac img:hover {
+    transform: scale(1.1); 
+    /* لا نغير لون الخلفية هنا لأنها أيقونات شفافة، يمكن إضافة ظل مثلاً */
+    filter: drop-shadow(0 0 10px var(--hover));
+}
+
+/* Project Section */
+.project{
+    background-color: var(--seconde_background);
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.pro-container {
+    display: flex;
+    flex-direction: column; /* ترتيب العناصر عمودياً */
+    align-items: center; /* توسيط العناصر أفقياً */
+    gap: 40px; /* مسافة بين المشاريع */
+    max-width: 1000px; /* أقصى عرض للحاوية */
+    margin: 0 auto; /* توسيط الحاوية */
+}
+
+.project-item {
+    background-color: var(--button); /* لون خلفية لكل مشروع */
+    padding: 30px;
+    border-radius: 8px;
+    width: 100%; /* عرض كامل داخل pro-container */
+    max-width: 600px; /* أقصى عرض للمشروع الواحد */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.project-item:hover {
+    transform: translateY(-5px); /* تأثير رفع عند التحويم */
+}
+
+.project-item h3 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: var(--text);
+}
+
+.project-item p {
+    color: var(--seconde_text);
+    line-height: 1.6;
+}
+
+.but1, .but2, .coming-soon {
+    background-color: var(--hover); /* استخدام لون الـ hover للزر ليكون بارزاً */
+    color: var(--text);
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 15px;
+}
+
+.but1:hover, .but2:hover {
+    background-color: #4A4AD6; /* لون أغمق قليلاً عند التحويم */
+    transform: scale(1.05);
+}
+
+.coming-soon {
+    background-color: var(--seconde_text); /* لون مختلف للأزرار المعطلة */
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Diploma Section */
+.diploma {
+    background-color: var(--background);
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.diploma-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.diploma h2 {
+    font-size: 2.5em;
+    margin-bottom: 50px;
+    color: var(--text);
+}
+
+.certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 3 أعمدة على الشاشات الكبيرة، تتكيف للأصغر */
+    gap: 30px; /* مسافة بين الشهادات */
+    justify-items: center; /* توسيط العناصر داخل الشبكة */
+}
+
+.certificate-item {
+    background-color: var(--seconde_background);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex; /* لجعل المحتوى داخل العنصر مرناً */
+    flex-direction: column; /* ترتيب المحتوى عمودياً */
+    align-items: center; /* توسيط المحتوى أفقياً */
+    height: 100%; /* لضمان أن جميع العناصر في الشبكة لها نفس الارتفاع */
+}
+
+.certificate-item:hover {
+    transform: translateY(-5px); /* تأثير رفع عند التحويم */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.certificate-pdf {
+    width: 100%; /* عرض الإطار بالكامل داخل العنصر */
+    height: 300px; /* ارتفاع ثابت للإطار، يمكن تعديله حسب الحاجة */
+    border: 1px solid var(--button); /* حدود بسيطة للإطار */
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.certificate-item p {
+    color: var(--seconde_text);
+    font-size: 1.1em;
+    margin-top: auto; /* يدفع الوصف إلى الأسفل إذا كان هناك مساحة إضافية */
+}
+
+.download-btn {
+    background: var(--button);
+    color: var(--seconde_background);
+    border: 2px solid var(--linked);
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    margin: 10px 0;
+}
+
+.download-btn:hover {
+    background: var(--hover);
+    color: var(--text);
+    transform: scale(1.05);
+}
+
+/* رسالة التنزيل */
+.download-message {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--seconde_background);
+    color: var(--seconde_text);
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    display: none;
+}
+
+
+/* Footer Styles */
+footer {
+    background-color: var(--seconde_background);
+    color: var(--text);
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 50px; /* Add some space above the footer */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+footer p {
+    font-size: 1.1em;
+    margin: 0;
+}
+
+.instagram-icon {
+    width: 50px; /* Adjust size as needed */
+    height: 50px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.instagram-icon:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 10px var(--hover));
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(150vw); /* استخدام transform بدلاً من translate */
+    opacity: 0; /* إضافة إخفاء العنصر في البداية */
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .hero {
+        font-size: 80px;
+    }
+    .certificates-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 0;
+    }
+    nav ul li {
+        margin-bottom: 10px;
+    }
+    .language-btn {
+        margin-top: 10px;
+    }
+
+    .hero {
+        font-size: 60px;
+    }
+    .verhaal {
+        font-size: 1.2em;
+    }
+    .who {
+        font-size: 1em;
+        margin-top: 30px;
+    }
+    .bac img {
+        height: 70px;
+    }
+    .icons-container {
+        gap: 20px;
+    }
+    .project-item {
+        padding: 20px;
+    }
+    .diploma h2 {
+        font-size: 2em;
+    }
+    .certificates-grid {
+        grid-template-columns: 1fr; /* عمود واحد على الشاشات الصغيرة جداً */
+    }
+    .certificate-pdf {
+        height: 250px; /* تقليل ارتفاع الإطار على الشاشات الصغيرة */
+    }
+     footer {
+        padding: 20px 15px;
+        margin-top: 30px;
+    }
+    footer p {
+        font-size: 1em;
+    }
+    .instagram-icon {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        font-size: 40px;
+    }
+    .verhaal {
+        font-size: 1em;
+    }
+    .who {
+        font-size: 0.9em;
+    }
+    .bac img {
+        height: 50px;
+    }
+    .project-item h3 {
+        font-size: 1.2em;
+    }
+    .but1, .but2, .coming-soon {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+    .certificate-pdf {
+        height: 200px; /* تقليل ارتفاع الإطار أكثر على أصغر الشاشات */
+    }
+       footer {
+        padding: 15px 10px;
+        margin-top: 20px;
+    }
+    footer p {
+        font-size: 0.9em;
+    }
+    .instagram-icon {
+        width: 35px;
+        height: 35px;
+    }
+}

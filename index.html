@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="nl"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohammad</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- إضافة خط Cairo من Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Playpen+Sans+Arabic:wght@200&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- رأس الصفحة -->
+    <nav>
+        <ul>
+            <li><a href="#about" data-lang="nav_who_am_i">Wie ben ik?</a></li> 
+            <li><a href="#project" data-lang="nav_my_projects">Mijn projecten</a></li> 
+            <li><a href="#cv" data-lang="nav_my_cv">Mijn CV</a></li> 
+            <li><a href="#diploma" data-lang="nav_my_diplomas">Mijn diploma's</a></li> 
+          
+            <button id="languageToggle" class="language-btn">NL / العربية</button>
+        </ul>
+    </nav>
+
+    <section class="about" id="about">
+        <h1 class="hero" data-lang="hero_name">Mohammad Abdullah</h1>
+        <h3 class="verhaal" data-lang="hero_slogan">Ik bouw websites en jaag mijn dromen na... Tussen code en een rondje hardlopen, dit is mijn verhaal</h3>
+        <div class="bac">
+            <h3 class="who" data-lang="about_description">Een 16-jarige student, front-end developer en sporter. Ik geloof dat eenvoud dichter bij schoonheid ligt dan elke versiering.</h3>
+            <div class="icons-container">
+                <img src="img/coding.png" alt="Coding icon">
+                <img src="img/dumbbell.png" alt="Dumbbell icon">
+                <img src="img/graduated.png" alt="Graduated icon">
+            </div>
+        </div> 
+    </section>
+
+    <section class="project" id="project">
+        <div class="pro-container">
+            <h2 data-lang="projects_title">Wat zijn mijn persoonlijke projecten?</h2> 
+            
+            <div class="project-item">
+                <h3 data-lang="syrian_gov">Ik heb een web voor syrian regering💚</h3>
+                <button class="but1" onclick="window.location.href='https://relaxed-pasca-79dd7d.netlify.app/';">click me !!</button>
+            </div>
+
+            <div class="project-item">
+                <h3 data-lang="eid">En ook Ik heb een offerfeest groetsite gemaakt.</h3>
+                <button class="but2" onclick="window.location.href='https://mohdashr7.github.io/Eid/';">click me !!</button>
+            </div>
+
+            <div class="project-item coming-soon-project">
+                <h3 class="project-title" data-lang="project_digital_immortality_title">Digitale Onsterfelijkheid</h3>
+                <p class="project-status" data-lang="project_digital_immortality_status">🚧 In ontwikkeling - project wordt nog gebouwd</p>
+                <p class="project-desc" data-lang="project_digital_immortality_desc">
+                    Een platform dat herinneringen op een humane en moderne manier digitaal wil bewaren. Binnenkort beschikbaar...
+                </p>
+                <button disabled class="coming-soon" data-lang="project_digital_immortality_button">Binnenkort</button>
+            </div>
+        </div>
+    </section>
+
+
+ <section class="diploma" id="diploma">
+        <div class="diploma-container">
+            <h2 data-lang="diplomas_title">Mijn Diploma's</h2> 
+            
+            <div class="certificates-grid">
+                <!-- شهادة Poiesz: DKW en GKW -->
+                <div class="certificate-item">
+                    <iframe src="pdf/Certificaat_poiesz-dkw-gkw.pdf" class="certificate-pdf" frameborder="0">
+                        <p data-lang="cert_pdf_fallback">Your browser does not support PDFs. <a href="pdf/certificate_poiesz_dkw_gkw.pdf">Download the PDF</a>.</p>
+                    </iframe>
+                    <p data-lang="cert_poiesz_dkw_gkw_desc">Poiesz: DKW en GKW</p>
+                </div>
+                <!-- شهادة Poiesz: De situatie de baas -->
+                <div class="certificate-item">
+                    <iframe src="pdf/Certificaat_poiesz-de-situatie-de-baas.pdf" class="certificate-pdf" frameborder="0">
+                        <p data-lang="cert_pdf_fallback">Your browser does not support PDFs. <a href="pdf/certificate_poiesz_situatie_baas.pdf">Download the PDF</a>.</p>
+                    </iframe>
+                    <p data-lang="cert_poiesz_situatie_baas_desc">Poiesz: De situatie de baas</p>
+                </div>
+                <!-- شهادة Poiesz: Diefstalpreventie -->
+                <div class="certificate-item">
+                    <iframe src="pdf/Certificaat_poiesz-diefstalpreventie.pdf" class="certificate-pdf" frameborder="0">
+                        <p data-lang="cert_pdf_fallback">Your browser does not support PDFs. <a href="pdf/certificate_poiesz_diefstalpreventie.pdf">Download the PDF</a>.</p>
+                    </iframe>
+                    <p data-lang="cert_poiesz_diefstalpreventie_desc">Poiesz: Diefstalpreventie</p>
+                </div>
+                <!-- شهادة Poiesz: HACCP -->
+                <div class="certificate-item">
+                    <iframe src="pdf/Certificaat_poiesz-haccp.pdf" class="certificate-pdf" frameborder="0">
+                        <p data-lang="cert_pdf_fallback">Your browser does not support PDFs. <a href="pdf/certificate_poiesz_haccp.pdf">Download the PDF</a>.</p>
+                    </iframe>
+                    <p data-lang="cert_poiesz_haccp_desc">Poiesz: HACCP</p>
+                </div>
+                <!-- شهادة Poiesz: Welkom bij Poiesz -->
+                <div class="certificate-item">
+                    <iframe src="pdf/Certificaat_welkom-bij-poiesz-2021.pdf" class="certificate-pdf" frameborder="0">
+                        <p data-lang="cert_pdf_fallback">Your browser does not support PDFs. <a href="pdf/certificate_poiesz_welkom.pdf">Download the PDF</a>.</p>
+                    </iframe>
+                    <p data-lang="cert_poiesz_welkom_desc">Welkom bij Poiesz</p>
+                </div>
+                <!-- شهادة Poiesz: Veiligheidsmodule Winkel -->
+                <div class="certificate-item">
+                    <iframe src="pdf/Certificaat_poiesz-veiligheidsmodule-winkel.pdf" class="certificate-pdf" frameborder="0">
+                        <p data-lang="cert_pdf_fallback">Your browser does not support PDFs. <a href="pdf/certificate_poiesz_veiligheidsmodule.pdf">Download the PDF</a>.</p>
+                    </iframe>
+                    <p data-lang="cert_poiesz_veiligheidsmodule_desc">Poiesz: Veiligheidsmodule Winkel</p>
+                </div>
+                <!-- شهادة Shiyar Academy: HTML Course -->
+                <div class="certificate-item">
+                    <iframe src="pdf/ShiyarAcademy Certificate Master HTML MOHAMMAD ABDULLAH.pdf" class="certificate-pdf" frameborder="0">
+                        <p data-lang="cert_pdf_fallback">Your browser does not support PDFs. <a href="pdf/certificate_shiyar_html.pdf">Download the PDF</a>.</p>
+                    </iframe>
+                    <p data-lang="cert_shiyar_html_desc">Shiyar Academy: HTML Course</p>
+                </div>
+                <!-- شهادة Shiyar Academy: CSS Course -->
+                <div class="certificate-item">
+                    <iframe src="pdf/ShiyarAcademy Certificate Master CSS MOHAMMAD ABDULLAH.pdf" class="certificate-pdf" frameborder="0">
+                        <p data-lang="cert_pdf_fallback">Your browser does not support PDFs. <a href="pdf/certificate_shiyar_css.pdf">Download the PDF</a>.</p>
+                    </iframe>
+                    <p data-lang="cert_shiyar_css_desc">Shiyar Academy: CSS Course</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cv" id="cv">
+        
+    <div class="cv-container">
+        <h2 data-lang="cv_con">Mijn CV</h2>
+        <div class="cv-card">
+            <div class="cv-content">
+                <h3 data-lang="hero_name">Mohammad Abdullah</h3>
+                <div class="cv-details">
+                    <p data-lang="progr">Front-end Developer en toekomst full stack devoleper</p>
+                    <p data-lang="oud">16 jaar oud</p>
+                    <p data-lang="ho">ervaring : 3 jaar</p>
+                </div>
+            </div>
+            <div class="download-area">
+                <button class="download-btn" data-lang="download">Download CV</button>
+                <span data-lang="ver">Word (DOCX)</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <footer>
+        <p data-lang="footer_text">تواصل معي على انستغرام:</p>
+        <a href="https://www.instagram.com/iammohammadabdullah" target="_blank" rel="noopener noreferrer">
+            <img src="img/instagram.png" alt="Instagram" class="instagram-icon">
+        </a>
+    </footer>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
