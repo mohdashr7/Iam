@@ -24,6 +24,8 @@ document.addEventListener('DOMContentLoaded', function( ) {
         'project_digital_immortality_status': '🚧 In ontwikkeling - project wordt nog gebouwd',
         'project_digital_immortality_desc': 'Een platform dat herinneringen op een humane en moderne manier digitaal wil bewaren. Binnenkort beschikbaar...',
      'project_digital_immortality_button': 'Binnenkort',
+        'project_title_digital':'syria speek',
+        'project_digital_disk':'Een platform waarbij kunnen pasport aanvraag of discussies over land. binnenkort beschikbar...'
 
         //قسم الشهادات
          'diplomas_title': 'Mijn Diploma\'s',
@@ -70,6 +72,8 @@ document.addEventListener('DOMContentLoaded', function( ) {
         'project_digital_immortality_status': '🚧 قيد العمل - المشروع تحت التطوير',
         'project_digital_immortality_desc': 'منصة تهدف لتخليد الذكريات رقمياً بطريقة إنسانية وحديثة. قريباً ستنطلق...',
         'project_digital_immortality_button': 'قريباً',
+            'project_title_digital':'سوريا تتكلم',
+            'project_digital_disk':'منصة تنمكنك من ان تطلب جواز و الاهم امكانية مناقشات عن البلاد قريبا ستتطلق...'
 
         // قسم الشهادات
         'diplomas_title': 'شهاداتي',
