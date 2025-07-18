@@ -1,150 +1,146 @@
-document.addEventListener('DOMContentLoaded', function( ) {
-    const languageToggle = document.getElementById('languageToggle');
-    const elementsToTranslate = document.querySelectorAll('[data-lang]');
+// app.js
 
-   const translations = {
-    'nl': {
-        // القائمة الرئيسية
-        'nav_who_am_i': 'Wie ben ik?',
-        'nav_my_projects': 'Mijn projecten',
-        'nav_my_cv': 'Mijn CV',
-        'nav_my_diplomas': 'Mijn diploma\'s',
-        'nav_contact': 'Contact',
+const languageToggleBtn = document.getElementById('languageToggle');
+let currentLanguage = 'ar'; // اللغة الافتراضية هي العربية
 
-        // قسم عني
-        'hero_name': 'Mohammad Abdullah',
-        'hero_slogan': 'Ik bouw websites en jaag mijn dromen na... Tussen code en een rondje hardlopen, dit is mijn verhaal',
-        'about_description': 'Een 16-jarige student, front-end developer en sporter. Ik geloof dat eenvoud dichter bij schoonheid ligt dan elke versiering.',
-
-        // قسم المشاريع
-        'projects_title': 'Wat zijn mijn persoonlijke projecten?',
-        'syrian_gov': 'Ik heb een web voor syrian regering💚',
-        'eid': 'En ook Ik heb een offerfeest groetsite gemaakt.',
-        'project_digital_immortality_title': 'Digitale Onsterfelijkheid',
-        'project_digital_immortality_status': '🚧 In ontwikkeling - project wordt nog gebouwd',
-        'project_digital_immortality_desc': 'Een platform dat herinneringen op een humane en moderne manier digitaal wil bewaren. Binnenkort beschikbaar...',
-     'project_digital_immortality_button': 'Binnenkort',
-        'project_title_digital':'syria speek',
-        'project_digital_disk':'Een platform waarbij kunnen pasport aanvraag of discussies over land. binnenkort beschikbar...'
-
-        //قسم الشهادات
-         'diplomas_title': 'Mijn Diploma\'s',
-        'cert_poiesz_dkw_gkw_desc': 'Poiesz: DKW en GKW',
-        'cert_poiesz_situatie_baas_desc': 'Poiesz: De situatie de baas',
-        'cert_poiesz_diefstalpreventie_desc': 'Poiesz: Diefstalpreventie',
-        'cert_poiesz_haccp_desc': 'Poiesz: HACCP',
-        'cert_poiesz_welkom_desc': 'Welkom bij Poiesz',
-        'cert_poiesz_veiligheidsmodule_desc': 'Poiesz: Veiligheidsmodule Winkel',
-        'cert_shiyar_html_desc': 'Shiyar Academy: HTML Course',
-        'cert_shiyar_css_desc': 'Shiyar Academy: CSS Course',
-                'cert_pdf_fallback': 'Your browser does not support PDFs. Download the PDF.', // رسالة احتياطية
-
-                //cv
-                  'download': 'CV Downloaden',
-        'ver': 'Word (DOCX) versie',
-        '': 'Bestand wordt gedownload...',
-        'progr':'Front-end Developer en toekomst full stack devoleper',
-        'oud':'16 jaar oud',
-        'ho':'ervaring : 3 jaar',
-
-               'footer_text': 'Volg mij op Instagram:',
-
-
-    },
+// كائن الترجمات
+const translations = {
     'ar': {
-        // القائمة الرئيسية
-        'nav_who_am_i': 'من أنا؟',
-        'nav_my_projects': 'مشاريعي',
-        'nav_my_cv': 'السيرة الذاتية',
-        'nav_my_diplomas': 'شهاداتي',
-        'nav_contact': 'تواصل معي',
-
-        // قسم عني
-        'hero_name': 'مُحَمَّد عَبْدُ ٱللَّٰه',
-        'hero_slogan': 'أبني صفحات الويب، وأركض خلف الأحلام… بين كود وجولة، هذه قصتي',
-        'about_description': 'طالب مدرسي أبلغ من العمر 16 سنة، مطوّر واجهات، ورياضي. أؤمن بأن البساطة أقرب إلى الجمال من أيّ زخرفة.',
-
-        // قسم المشاريع
-        'projects_title': 'ماهي مشاريعي الشخصية؟',
-        'syrian_gov': 'سويت موقع للوزارة الخارجية السورية💚',
-        'eid': 'وبرضو سويت موقع تهنئة لعيد الاضحى',
-        'project_digital_immortality_title': 'خلود رقمي',
-        'project_digital_immortality_status': '🚧 قيد العمل - المشروع تحت التطوير',
-        'project_digital_immortality_desc': 'منصة تهدف لتخليد الذكريات رقمياً بطريقة إنسانية وحديثة. قريباً ستنطلق...',
-        'project_digital_immortality_button': 'قريباً',
-            'project_title_digital':'سوريا تتكلم',
-            'project_digital_disk':'منصة تنمكنك من ان تطلب جواز و الاهم امكانية مناقشات عن البلاد قريبا ستتطلق...'
-
-        // قسم الشهادات
-        'diplomas_title': 'شهاداتي',
-        'cert_poiesz_dkw_gkw_desc': 'بويز: DKW و GKW',
-        'cert_poiesz_situatie_baas_desc': 'بويز: إتقان الموقف',
-        'cert_poiesz_diefstalpreventie_desc': 'بويز: منع السرقة',
-        'cert_poiesz_haccp_desc': 'بويز: HACCP',
-        'cert_poiesz_welkom_desc': 'أهلاً بك في بويز',
-        'cert_poiesz_veiligheidsmodule_desc': 'بويز: وحدة السلامة للمتجر',
-        'cert_shiyar_html_desc': 'أكاديمية شيار: دورة HTML',
-        'cert_shiyar_css_desc': 'أكاديمية شيار: دورة CSS',
-                'cert_pdf_fallback': 'متصفحك لا يدعم ملفات PDF. قم بتنزيل الملف.', // رسالة احتياطية
-                  'Download CV': 'تحميل السيرة الذاتية',
-        'Word (DOCX) version': 'نسخة Word (DOCX)',
-        'Download gestart...': 'جاري تحميل الملف...',
-        'download':'تحميل الملف',
-        'ver':'نسخة word',
-        'progr':'مطور واجهة مواقع وقريبا واجهة وخلفية',
-        'oud':'عمري 16 سنة',
-        'ho':'خبرة : 3سنين',
-
-        
-        'footer_text': 'تواصل معي على انستغرام:',
-
-    
+        nav_about: 'من انا؟',
+        nav_skills: 'مهاراتي',
+        nav_projects: 'مشاريعي',
+        nav_certificates: 'شهاداتي',
+        nav_contact: 'تواصل معي',
+        hero_name: 'مُحَمَّد عبد الله',
+        hero_tittle: 'مطور واجهات امامية',
+        hero_description: 'طالب ابلغ من العمر 16 ربيعا, مطور واجهات امامية و رياضي اؤمن بأن البساطة اهم من اي شيء',
+        view_projects: 'مشاهدة المشاريع',
+        contact_me: 'تواصل معي',
+        hero_role: 'مطور واجهة امامي و رياضي',
+        age: 'العمر',
+        experience: 'سنوات خبرة',
+        projects: 'مشروع',
+        skills_tittle: 'مهاراتي',
+        skills_subtitle: 'مجموعة المهارات الي عندي من خلال االبرمجة',
+        frontend_title: 'تطوير الواجهات الامامية',
+        frontend_desc: 'تطوير واجهات مواقع تفاعلية وسريعة',
+        design_title: 'تصميم واجهات المستخدم',
+        design_desc: 'انشاء تصاميم حديثة وجذابة',
+        projects_tittle: 'مشاريعي',
+        projects_subtitle: 'استعرض بعض المشاريع التي عملت عليها',
+        project1_title: 'موقع يشابه الوزارة الخارجية السورية',
+        completed: 'مكتمل',
+        project1_desc: 'موقع ويب رسمي للحكومة السورية',
+        view_project: 'عرض المشروع',
+        project2_title: 'تهنئة عيد الأضحى',
+        project2_desc: 'موقع ويب بسيط لتهنئة عيد الأضحى المبارك',
+        project3_title: 'الخلود الرقمي',
+        in_progress: 'قيد التطوير',
+        project3_desc: 'منصة لتخليد الذكريات بطريقة رقمية حديثة وإنسانية',
+        certificates_tittle: 'شهاداتي',
+        certificates_subtitle: 'استعرض بعض الشهادات التي حصلت عليها',
+        cert1_title: 'دورة htm5',
+        cert1_org: 'أكاديمية شيار',
+        cert2_title: 'دورة css3',
+        cert2_org: 'أكاديمية شيار',
+        cert3_title: 'عدة دورات عن سلامة وامن المتاجر',
+        cert3_org: 'Poiesz',
+        contact_title: 'تواصل معي',
+        contact_subtitle: 'انا متاح دائما للعمل على مشاريع جديدة',
+        contact_text: 'هل لديك مشروع في ذهنك؟ دعنا نعمل معًا لتحويله إلى حقيقة!',
+        // أضف المزيد من الترجمات هنا
+    },
+    'nl': {
+        nav_about: 'Over mij',
+        nav_skills: 'Mijn vaardigheden',
+        nav_projects: 'Mijn projecten',
+        nav_certificates: 'Mijn certificaten',
+        nav_contact: 'Neem contact op',
+        hero_name: 'Mohammad Abdullah',
+        hero_tittle: 'Frontend Ontwikkelaar',
+        hero_description: 'Een 16-jarige student, frontend ontwikkelaar en atleet. Ik geloof dat eenvoud belangrijker is dan wat dan ook.',
+        view_projects: 'Bekijk projecten',
+        contact_me: 'Neem contact met mij op',
+        hero_role: 'Frontend Ontwikkelaar & Atleet',
+        age: 'Leeftijd',
+        experience: 'Jaren ervaring',
+        projects: 'Projecten',
+        skills_tittle: 'Mijn vaardigheden',
+        skills_subtitle: 'De vaardigheden die ik heb opgedaan door programmeren',
+        frontend_title: 'Frontend Ontwikkeling',
+        frontend_desc: 'Ontwikkeling van interactieve en snelle webinterfaces',
+        design_title: 'UI Ontwerp',
+        design_desc: 'Creëren van moderne en aantrekkelijke ontwerpen',
+        projects_tittle: 'Mijn projecten',
+        projects_subtitle: 'Bekijk enkele projecten waaraan ik heb gewerkt',
+        project1_title: 'Website vergelijkbaar met het Syrische Ministerie van Buitenlandse Zaken',
+        completed: 'Voltooid',
+        project1_desc: 'Officiële website voor de Syrische regering',
+        view_project: 'Bekijk project',
+        project2_title: 'Eid al-Adha felicitatie',
+        project2_desc: 'Een eenvoudige website om Eid al-Adha te feliciteren',
+        project3_title: 'Digitale Onsterfelijkheid',
+        in_progress: 'In ontwikkeling',
+        project3_desc: 'Een platform om herinneringen op een moderne en humane digitale manier te vereeuwigen',
+        certificates_tittle: 'Mijn certificaten',
+        certificates_subtitle: 'Bekijk enkele certificaten die ik heb behaald',
+        cert1_title: 'HTML5 Cursus',
+        cert1_org: 'Shayar Academy',
+        cert2_title: 'CSS3 Cursus',
+        cert2_org: 'Shayar Academy',
+        cert3_title: 'Verschillende cursussen over winkelveiligheid en beveiliging',
+        cert3_org: 'Poiesz',
+        contact_title: 'Neem contact met mij op',
+        contact_subtitle: 'Ik ben altijd beschikbaar voor nieuwe projecten',
+        contact_text: 'Heeft u een project in gedachten? Laten we samenwerken om het werkelijkheid te maken!',
+        // أضف المزيد من الترجمات هنا
     }
 };
 
-
-    // تحميل اللغة المحفوظة
-    const savedLang = localStorage.getItem('language') || 'nl';
-    changeLanguage(savedLang);
-
-    // تبديل اللغة عند النقر
-    languageToggle.addEventListener('click', function() {
-        const currentLang = document.documentElement.lang;
-        const newLang = currentLang === 'nl' ? 'ar' : 'nl';
-        changeLanguage(newLang);
+function setLanguage(lang) {
+    document.querySelectorAll('[data-lang]').forEach(element => {
+        const key = element.getAttribute('data-lang');
+        if (translations[lang] && translations[lang][key]) {
+            element.textContent = translations[lang][key];
+        }
     });
+    currentLanguage = lang;
+    // تحديث نص زر تبديل اللغة
+    languageToggleBtn.querySelector('span').textContent = lang === 'ar' ? 'العربية|NL' : 'NL|العربية';
+    // تحديث اتجاه الصفحة
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+}
 
-    // تغيير اللغة وتحديث النصوص
-    function changeLanguage(lang) {
-        document.documentElement.lang = lang;
-        document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-
-        elementsToTranslate.forEach(element => {
-            const key = element.getAttribute('data-lang');
-            if (translations[lang][key]) {
-                element.textContent = translations[lang][key];
-            } else {
-                console.warn(`Translation key "${key}" not found for language "${lang}"`);
-            }
-        });
-
-        // تحديث نص الزر
-        languageToggle.textContent = lang === 'nl' ? 'NL / العربية' : 'العربية / NL';
-        localStorage.setItem('language', lang);
-    }
+// تبديل اللغة عند النقر على الزر
+languageToggleBtn.addEventListener('click', () => {
+    const newLang = currentLanguage === 'ar' ? 'nl' : 'ar';
+    setLanguage(newLang);
 });
 
-document.querySelector('.download-btn').addEventListener('click', function() {
-    // إنشاء رابط تنزيل لملف السيرة الذاتية
-    const link = document.createElement('a');
-    link.href = 'Mohammad_Abdullah_CV.docx';
-    link.download = 'Mohammad_Abdullah_CV.docx';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    
-    // إضافة رسالة تأكيد للمستخدم
-    const lang = document.documentElement.lang;
-    const message = lang === 'ar' ? 'جاري تحميل الملف...' : 'Download gestart...';
-    alert(message);
+// تعيين اللغة الافتراضية عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', () => {
+    setLanguage(currentLanguage);
+});
+
+// Fade-in effect for sections
+const faders = document.querySelectorAll('.fade-in');
+
+const appearOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px"
+};
+
+const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+            return;
+        } else {
+            entry.target.classList.add('appear');
+            appearOnScroll.unobserve(entry.target);
+        }
+    });
+}, appearOptions);
+
+faders.forEach(fader => {
+    appearOnScroll.observe(fader);
 });
