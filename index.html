@@ -1,171 +1,277 @@
 <!DOCTYPE html>
-<html lang="nl"> 
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohammad</title>
+    <title>Wie is Mohammad?</title>
     <link rel="stylesheet" href="style.css">
-    <!-- إضافة خط Cairo من Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Playpen+Sans+Arabic:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="img/boy.png" type="image/x-icon">
 </head>
 <body>
-    <!-- رأس الصفحة -->
-    <nav>
-        <ul>
-            <li><a href="#about" data-lang="nav_who_am_i">Wie ben ik?</a></li> 
-            <li><a href="#project" data-lang="nav_my_projects">Mijn projecten</a></li> 
-            <li><a href="#cv" data-lang="nav_my_cv">Mijn CV</a></li> 
-            <li><a href="#diploma" data-lang="nav_my_diplomas">Mijn diploma's</a></li> 
-          
-            <button id="languageToggle" class="language-btn">NL / العربية</button>
-        </ul>
-    </nav>
-
-    <section class="about" id="about">
-        <h1 class="hero" data-lang="hero_name">Mohammad Abdullah</h1>
-        <h3 class="verhaal" data-lang="hero_slogan">Ik bouw websites en jaag mijn dromen na... Tussen code en een rondje hardlopen, dit is mijn verhaal</h3>
-        <div class="bac">
-            <h3 class="who" data-lang="about_description">Een 16-jarige student, front-end developer en sporter. Ik geloof dat eenvoud dichter bij schoonheid ligt dan elke versiering.</h3>
-            <div class="icons-container">
-                <img src="img/coding.png" alt="Coding icon">
-                <img src="img/dumbbell.png" alt="Dumbbell icon">
-                <img src="img/graduated.png" alt="Graduated icon">
-            </div>
-        </div> 
-    </section>
-
-    <section class="project" id="project">
-        <div class="pro-container">
-            <h2 data-lang="projects_title">Wat zijn mijn persoonlijke projecten?</h2> 
-            
-            <div class="project-item">
-                <h3 data-lang="syrian_gov">Ik heb een web voor syrian regering💚</h3>
-                <button class="but1" onclick="window.location.href='https://relaxed-pasca-79dd7d.netlify.app/';">click me !!</button>
-            </div>
-
-            <div class="project-item">
-                <h3 data-lang="eid">En ook Ik heb een offerfeest groetsite gemaakt.</h3>
-                <button class="but2" onclick="window.location.href='https://mohdashr7.github.io/Eid/';">click me !!</button>
-            </div>
-
-            <div class="project-item coming-soon-project">
-                <h3 class="project-title" data-lang="project_digital_immortality_title">Digitale Onsterfelijkheid</h3>
-                <p class="project-status" data-lang="project_digital_immortality_status">🚧 In ontwikkeling - project wordt nog gebouwd</p>
-                <p class="project-desc" data-lang="project_digital_immortality_desc">
-                    Een platform dat herinneringen op een humane en moderne manier digitaal wil bewaren. Binnenkort beschikbaar...
-                </p>
-                <button disabled class="coming-soon" data-lang="project_digital_immortality_button">Binnenkort</button>
-            </div>
+    
+<header>
+    <div class="container">
+        <div class="header-content">
+           <div class="logo">
+            <i class="fas fa-code"></i>
+            <span>مُحَمَّد عبد الله </span>
+            <i class="fa-solid fa-dumbbell"></i>
+           </div>
+           <nav>
+            <ul>
+                <li><a href="#home" data-lang="nav_about">من انا؟</a></li>
+                <li><a href="#skills" data-lang="nav_skills">مهاراتي</a></li>
+                <li><a href="#projects" data-lang="nav_projects">مشاريعي</a></li>
+                <li><a href="#certificates" data-lang="nav_certificates">شهاداتي</a></li>
+                <li><a href="#contact" data-lang="nav_contact">تواصل معي</a></li>
+            </ul>
+           </nav>
+           <button id="languageToggle" class="language-btn">
+            <i class="fas fa-globe"></i>
+            <span>العربية|NL</span>
+           </button>
         </div>
-        <br>
-        <div class="project-item coming-soon-project">
-            <h3 class="project-title" data-lang="project_title_digital">Syria speek </h3>
-              <p class="project-status" data-lang="project_digital_immortality_status">🚧 In ontwikkeling - project wordt nog gebouwd</p>
-                <p class="project-desc" data-lang="project_digital_disk">
-             Een platform waarbij kunnen pasport aanvraag of discussies over land. binnenkort beschikbar...
-                </p>
-                <button disabled class="coming-soon" data-lang="project_digital_immortality_button">Binnenkort</button>
+    </div>
+</header>
+
+<section id="home" class="hero">
+    <div class="container">
+        <div class="hero-content fade-in">
+            <div class="hero-text">
+                <h1><span data-lang="hero_name">مُحَمَّد عبد الله </span><br>
+                <span data-lang="hero_tittle">مطور واجهات امامية </span>
+                </h1>
+                <p data-lang="hero_description">طالب ابلغ من العمر 16 ربيعا, مطور واجهات امامية و رياضي  اؤمن بأن البساطة اهم من اي شيء </p>
+                
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary" >
+                        <i class="fas fa-laptop-code"></i>
+                        <span data-lang="view_projects">مشاهدة المشاريع</span>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i>
+                        <span data-lang="contact_me">تواصل معي</span>
+                    </a>
+
+                </div>
+
             </div>
-        </div>
-    </section>
-
-
- <section class="diploma" id="diploma">
-        <div class="diploma-container">
-            <h2 data-lang="diplomas_title">Mijn Diploma's</h2> 
-            
-            <div class="certificates-grid">
-                <!-- شهادة Poiesz: DKW en GKW -->
-                <div class="certificate-item">
-                    <iframe src="pdf/Certificaat_poiesz-dkw-gkw.pdf" class="certificate-pdf" frameborder="0">
-                        <p data-lang="cert_pdf_fallback">Your browser does not support PDFs. <a href="pdf/certificate_poiesz_dkw_gkw.pdf">Download the PDF</a>.</p>
-                    </iframe>
-                    <p data-lang="cert_poiesz_dkw_gkw_desc">Poiesz: DKW en GKW</p>
+            <div class="hero-image">
+                <div class="profile-card fade-in">
+                    <div class="profile-header">
+                        <div class="profile-img">
+                            <i class="fas fa-user" style="font-size: 4rem; color: white; display: flex; align-items: center; justify-content: center; height: 100%;"></i>
+                        </div>
+                        
+                            <h2 data-lang="hero_name">مُحَمَّد عبد الله</h2>
+                            <p data-lang="hero_role">مطور واجهة امامي و رياضي</p>
+                    
                 </div>
-                <!-- شهادة Poiesz: De situatie de baas -->
-                <div class="certificate-item">
-                    <iframe src="pdf/Certificaat_poiesz-de-situatie-de-baas.pdf" class="certificate-pdf" frameborder="0">
-                        <p data-lang="cert_pdf_fallback">Your browser does not support PDFs. <a href="pdf/certificate_poiesz_situatie_baas.pdf">Download the PDF</a>.</p>
-                    </iframe>
-                    <p data-lang="cert_poiesz_situatie_baas_desc">Poiesz: De situatie de baas</p>
-                </div>
-                <!-- شهادة Poiesz: Diefstalpreventie -->
-                <div class="certificate-item">
-                    <iframe src="pdf/Certificaat_poiesz-diefstalpreventie.pdf" class="certificate-pdf" frameborder="0">
-                        <p data-lang="cert_pdf_fallback">Your browser does not support PDFs. <a href="pdf/certificate_poiesz_diefstalpreventie.pdf">Download the PDF</a>.</p>
-                    </iframe>
-                    <p data-lang="cert_poiesz_diefstalpreventie_desc">Poiesz: Diefstalpreventie</p>
-                </div>
-                <!-- شهادة Poiesz: HACCP -->
-                <div class="certificate-item">
-                    <iframe src="pdf/Certificaat_poiesz-haccp.pdf" class="certificate-pdf" frameborder="0">
-                        <p data-lang="cert_pdf_fallback">Your browser does not support PDFs. <a href="pdf/certificate_poiesz_haccp.pdf">Download the PDF</a>.</p>
-                    </iframe>
-                    <p data-lang="cert_poiesz_haccp_desc">Poiesz: HACCP</p>
-                </div>
-                <!-- شهادة Poiesz: Welkom bij Poiesz -->
-                <div class="certificate-item">
-                    <iframe src="pdf/Certificaat_welkom-bij-poiesz-2021.pdf" class="certificate-pdf" frameborder="0">
-                        <p data-lang="cert_pdf_fallback">Your browser does not support PDFs. <a href="pdf/certificate_poiesz_welkom.pdf">Download the PDF</a>.</p>
-                    </iframe>
-                    <p data-lang="cert_poiesz_welkom_desc">Welkom bij Poiesz</p>
-                </div>
-                <!-- شهادة Poiesz: Veiligheidsmodule Winkel -->
-                <div class="certificate-item">
-                    <iframe src="pdf/Certificaat_poiesz-veiligheidsmodule-winkel.pdf" class="certificate-pdf" frameborder="0">
-                        <p data-lang="cert_pdf_fallback">Your browser does not support PDFs. <a href="pdf/certificate_poiesz_veiligheidsmodule.pdf">Download the PDF</a>.</p>
-                    </iframe>
-                    <p data-lang="cert_poiesz_veiligheidsmodule_desc">Poiesz: Veiligheidsmodule Winkel</p>
-                </div>
-                <!-- شهادة Shiyar Academy: HTML Course -->
-                <div class="certificate-item">
-                    <iframe src="pdf/ShiyarAcademy Certificate Master HTML MOHAMMAD ABDULLAH.pdf" class="certificate-pdf" frameborder="0">
-                        <p data-lang="cert_pdf_fallback">Your browser does not support PDFs. <a href="pdf/certificate_shiyar_html.pdf">Download the PDF</a>.</p>
-                    </iframe>
-                    <p data-lang="cert_shiyar_html_desc">Shiyar Academy: HTML Course</p>
-                </div>
-                <!-- شهادة Shiyar Academy: CSS Course -->
-                <div class="certificate-item">
-                    <iframe src="pdf/ShiyarAcademy Certificate Master CSS MOHAMMAD ABDULLAH.pdf" class="certificate-pdf" frameborder="0">
-                        <p data-lang="cert_pdf_fallback">Your browser does not support PDFs. <a href="pdf/certificate_shiyar_css.pdf">Download the PDF</a>.</p>
-                    </iframe>
-                    <p data-lang="cert_shiyar_css_desc">Shiyar Academy: CSS Course</p>
+               <div class="profile-stats">
+                            <div class="stat">
+                                <div class="stat-value">16</div>
+                                <div class="stat-label" data-lang="age">العمر</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">3+</div>
+                                <div class="stat-label" data-lang="experience">سنوات خبرة</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">10+</div>
+                                <div class="stat-label" data-lang="projects">مشروع</div>
+                            </div>
+                        </div>
+                        
+                        <div class="profile-tags">
+                            <div class="tag">واجهات امامية</div>
+                            <div class="tag">UI/UX</div>
+                            <div class="tag">تصميم مواقع</div>
+                            <div class="tag">رياضي</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="cv" id="cv">
-        
-    <div class="cv-container">
-        <h2 data-lang="cv_con">Mijn CV</h2>
-        <div class="cv-card">
-            <div class="cv-content">
-                <h3 data-lang="hero_name">Mohammad Abdullah</h3>
-                <div class="cv-details">
-                    <p data-lang="progr">Front-end Developer en toekomst full stack devoleper</p>
-                    <p data-lang="oud">16 jaar oud</p>
-                    <p data-lang="ho">ervaring : 3 jaar</p>
+<section id="skills" class="section">
+    <div class="container">
+        <div class="section-header fade-in">
+            <h2 class="section-title" data-lang="skills_tittle">مهاراتي</h2>
+            <p class="section-subtitle" data-lang="skills_subtitle">مجموعة المهارات الي عندي من خلال االبرمجة</p>
+
+        </div>
+        <div class="skills-grid">
+            <div class="skill-card fade-in">
+                <div class="skill-icon">
+                    <i class="fab fa-html5"></i>
+                </div>
+                <h3 class="skill-title" data-lang="frontend_title">تطوير الواجهات الامامية</h3>
+                <p class="skill-desc" data-lang="frontend_desc">تطوير واجهات مواقع تفاعلية وسريعة</p>
+                <div class="skill-tags">
+                    <div class="tag">HTML5</div>
+                    <div class="tag">CSS3</div>
+                    <div class="tag">JavaScript</div>
                 </div>
             </div>
-            <div class="download-area">
-                <button class="download-btn" data-lang="download">Download CV</button>
-                <span data-lang="ver">Word (DOCX)</span>
+            <div class="skill-card fade-in">
+                <div class="skill-icon">
+                    <i class="fas fa-paint-brush"></i>
+
+                </div>
+                <h3 class="skill-title" data-lang="design_title">تصميم واجهات المستخدم</h3>
+                <p class="skill-desc" data-lang="design_desc">انشاء تصاميم حديثة وجذابة</p>
+                <div class="skill-tags">
+                    <div class="tag">UI/UX</div>
+                    <div class="tag">Figma</div>
+                    <div class="tag">responsive</div>
+
+                </div>
+
+    </div>
+        </div>
+    </div>
+    
+</section>
+
+<section id="projects" class="section projects">
+    <div class="container">
+        <div class="section-title fade-in">
+        <h2 class="section-title" data-lang="projects_tittle">مشاريعي</h2>
+        <p class="section-subtitle" data-lang="projects_subtitle">استعرض بعض المشاريع التي عملت عليها</p>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card fade-in">
+                <div class="project-img" style="background: linear-gradient(45deg,#3b82f6,#8b5cf6);">
+                    <i class="fas fa-globe-americas"></i>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title" data-lang="project1_title">موقع يشابه الوزارة الخارجية السورية</h3>
+                    <span class="project-status" data-lang="completed">مكتمل</span>
+                    <p class="project-desc" data-lang="project1_desc">موقع ويب رسمي للحكومة السورية </p>
+                    <a href="https://relaxed-pasca-79dd7d.netlify.app/" class="project-link" data-lang="view_project">
+                    <span>عرض المشروع</span>
+                    <i class="fas fa-arrow-left"></i>    
+                    </a>
+                </div>
             </div>
+            <div class="project-card fade-in">
+                <div class="project-img" style="background: linear-gradient(45deg,#ec4899,#8b5cf6);">
+                    <i class="fas fa-hands-praying">
+                    </i>
+
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title" data-lang="project2_title">
+                        تهنئة عيد الأضحى </h3>
+                        <span class="project-status" data-lang="completed">مكتمل</span>
+                    <p class="project-desc" data-lang="project2_desc">موقع ويب بسيط لتهنئة عيد الأضحى المبارك</p>
+                    <a href="https://mohdashr7.github.io/Eid/" class="project-link" data-lang="view_project">
+                        <span>عرض المشروع</span>
+                        <i class="fas fa-arrow-left"></i></a>
+                   
+                </div>
+            </div>
+ <div class="project-card fade-in">
+                    <div class="project-img" style="background: linear-gradient(45deg, #10b981, #3b82f6);">
+                        <i class="fas fa-infinity"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title" data-lang="project3_title">الخلود الرقمي</h3>
+                        <span class="project-status" data-lang="in_progress">قيد التطوير</span>
+                        <p class="project-desc" data-lang="project3_desc">منصة لتخليد الذكريات بطريقة رقمية حديثة وإنسانية</p>
+                        <a href="#" class="project-link" data-lang="view_project">
+                            <span>عرض المشروع</span>
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<section id="certificates" class="section">
+    <div class="container">
+        <div class="section-header fade-in">
+            <h2 class="section-title" data-lang="certificates_tittle">شهاداتي</h2>
+            <p class="section-subtitle" data-lang="certificates_subtitle">استعرض بعض الشهادات التي حصلت عليها</p>
+        </div>
+        <div class="certificates-grid">
+            <div class="certificate-card fade-in">
+                <div class="certificates-header">
+                    <div class="certificate-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3 class="certificate-title" data-lang="cert1_title"> دورة htm5</h3>
+                </div>
+                <p class="certificate-desc" data-lang="cert1_org">أكاديمية شيار</p>
+            </div>
+            <div class="certificate-card fade-in">
+                <div class="certificates-header">
+                    <div class="certificate-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3 class="certificate-title" data-lang="cert2_title">دورة css3</h3>
+                </div>
+                <p class="certificate-desc" data-lang="cert2_org">أكاديمية شيار</p>
+
+        </div>
+        <div class="certificate-card fade-in">
+                <div class="certificates-header">
+                    <div class="certificate-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3 class="certificate-title" data-lang="cert3_title"> عدة دورات عن سلامة وامن المتاجر</h3>
+                </div>
+                <p class="certificate-desc" data-lang="cert3_org"> Poiesz</p>
+            </div>
+        </div>
+</section>
+
+
+<section id="contact" class="section contact">
+    <div class="container">
+        <div class="section-header fade-in">
+            <h2 class="section-title" data-lang="contact_title">تواصل معي</h2>
+            <p class="section-subtitle" data-lang="contact_subtitle">انا متاح دائما للعمل على مشاريع جديدة</p>
+        </div>
+          <div class="contact-info fade-in">
+                <p data-lang="contact_text">هل لديك مشروع في ذهنك؟ دعنا نعمل معًا لتحويله إلى حقيقة!</p>
+
+        <div class="contact-links">
+            <a href="mailto:Mohammadalrifai2008@gmail.com" class="contact-link">
+                <i class="fas fa-envelope"></i>
+                <span>Mohammadalrifai2008@gmail.com</span>
+
+            </a>
+
+        </div>
+          <div class="social-links">
+            <a href="https://www.instagram.com/iammohammadabdullah/" class="social-link" target="_blank">
+                <i class="fab fa-instagram"></i></a>
+                <a href="https://github.com/mohdashr7" class="social-link" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+          </div>
         </div>
     </div>
 </section>
 
-    <footer>
-        <p data-lang="footer_text">تواصل معي على انستغرام:</p>
-        <a href="https://www.instagram.com/iammohammadabdullah" target="_blank" rel="noopener noreferrer">
-            <img src="img/instagram.png" alt="Instagram" class="instagram-icon">
-        </a>
-    </footer>
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-code"></i>
+                <span>مُحَمَّد عبد الله</span>
+                            <i class="fa-solid fa-dumbbell"></i>
 
 
-    <script src="script.js"></script>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script src="app.js"></script>
 </body>
 </html>
