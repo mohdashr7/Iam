@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ar rel="alternate" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Who is Mo?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&family=Marhey:wght@300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="https://kit.fontawesome.com/c0c2dbefd8.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- زر تبديل اللغة -->
+        <div class="language-switcher">
+            <button class="language-btn" id="languageBtn">
+                <i class="fa-solid fa-language"></i>
+            </button>
+            <div class="language-menu" id="languageMenu">
+                <button class="language-option" data-lang="ar">العربية</button>
+                <button class="language-option" data-lang="nl">Nederlands</button>
+            </div>
+        </div>
+
+        <div class="head fade-in">
+            <div class="image-cropper">
+                <img src="/img/Mo.jpg" alt="Mo's Image" class="profile-pic">
+            </div>
+            <div class="profile-container">
+                <h3 class="profile-name" data-lang="profile_name">مُحَمَّد عبد الله</h3>
+                <h4 class="profile-title" data-lang="profile_title">مطور واجهات مواقع وطالب ورياضي</h4>
+            </div>
+            <div class="social-media">
+                <a href="https://github.com/mohdashr7"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.instagram.com/iammohammadabdullah/"><i class="fa-brands fa-instagram"></i></a>
+                <a href="mailto:Mohammadalrifai2008@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+        </div>
+
+        <section id="birthday-countdown" class="countdown fade-in delay-1">
+            <h2 class="countdown-title" data-lang="countdown_title">العد التنازلي لميلادي 🎉</h2>
+            <div class="countdown-timer">
+                <div><span id="days">00</span><small data-lang="days_label">أيام</small></div>
+                <div><span id="hours">00</span><small data-lang="hours_label">ساعات</small></div>
+                <div><span id="minutes">00</span><small data-lang="minutes_label">دقائق</small></div>
+                <div><span id="seconds">00</span><small data-lang="seconds_label">ثوانٍ</small></div>
+            </div>
+        </section>
+
+        <div class="hero fade-in delay-2">
+            <h1 class="hero-title" data-lang="hero_title">مُحَمَّدْ أَشْرَفْ مَحْمُودْ طَلَبْ عَبْدُ اللهِ الرِّفَاعِيُّ الهَاشِمِيُّ الشَّرِيفُ</h1>
+        </div>
+
+        <div class="chip-container">
+            <div class="chip fade-in delay-1" data-lang="chip1">تعامل مع الضغط <i class="fa-solid fa-shield-halved"></i></div>
+            <div class="chip fade-in delay-2" data-lang="chip2">تنظيم <i class="fa-solid fa-check"></i></div>
+            <div class="chip fade-in delay-3" data-lang="chip3">محب للرياضة <i class="fa-solid fa-dumbbell"></i></div>
+            <div class="chip fade-in delay-4" data-lang="chip4">واقعية <i class="fa-solid fa-scale-balanced"></i></div>
+        </div>
+
+        <div class="about-me fade-in">
+            <div class="about-box">
+                <h2 class="about-title" data-lang="about_title">مين أنا؟✨</h2>
+                <p class="about-text" data-lang="about_text">
+                    أنا شمعةٌ تُضيءُ القريبين،
+                    انسان يحب الإتقان… لا يرضى بأنصاف الأمور.<br><br>
+                    ميزان من ثبات، يحمل المسؤولية كأنها قدر.<br><br>
+                    صمتي عميق، وفعلي أوضح من الكلام.<br><br>
+                    منظم كأن الزمن يسير على إيقاعي.<br><br>
+                    أحب البساطة… وأبحث عن الصدق في كل شيء.
+                </p>
+            </div>
+        </div>
+
+        <h2 class="projects-title fade-in" data-lang="projects_title">أفضل مشاريعي 😎</h2>
+
+        <div class="projects fade-in">
+            <div class="project1">
+                <i class="fa-solid fa-earth-asia"></i>
+                <h2 class="project-title1" data-lang="project_title1">موقع وزارة الخارجية السورية</h2>
+                <p class="project-text1" data-lang="project_text1">موقع يحاكي وزارة الخارجية السورية، يعرض معلومات حول الوزارة وخدماتها.</p>
+                <a href="https://relaxed-pasca-79dd7d.netlify.app/" class="project-link1" data-lang="project_link1">زيارة الموقع</a>
+            </div>
+        </div>
+
+        <div class="diploma">
+            Mohammad Abdullah © 2025
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
