@@ -1,146 +1,139 @@
-// app.js
+ document.addEventListener('DOMContentLoaded', function() {
+            const languageBtn = document.getElementById('languageBtn');
+            const languageMenu = document.getElementById('languageMenu');
+            
+            if (languageBtn && languageMenu) {
+                languageBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    languageMenu.classList.toggle('show');
+                });
+                
+                // إغلاق القائمة عند النقر خارجها
+                document.addEventListener('click', function() {
+                    languageMenu.classList.remove('show');
+                });
+                
+                // منع إغلاق القائمة عند النقر عليها
+                languageMenu.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                });
+            }
+            
+            // تحميل اللغة المحفوظة إذا وجدت
+            const savedLang = localStorage.getItem('selectedLang');
+            if (savedLang && savedLang !== 'ar') {
+                switchLanguage(savedLang);
+            }
+            
+            // إضافة مستمعي الأحداث لأزرار اللغة
+            document.querySelectorAll('.language-option').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const lang = this.getAttribute('data-lang');
+                    switchLanguage(lang);
+                });
+            });
+        });
 
-const languageToggleBtn = document.getElementById('languageToggle');
-let currentLanguage = 'ar'; // اللغة الافتراضية هي العربية
+        // كائن يحتوي على ترجمات للنصوص
+        const translations = {
+            ar: {
+                profile_name: "مُحَمَّد عبد الله",
+                profile_title: "مطور واجهات مواقع وطالب ورياضي",
+                hero_title: "مُحَمَّدْ أَشْرَفْ مَحْمُودْ طَلَبْ عَبْدُ اللهِ الرِّفَاعِيُّ الهَاشِمِيُّ الشَّرِيفُ",
+                chip1: "تعامل مع الضغط",
+                chip2: "تنظيم",
+                chip3: "محب للرياضة",
+                chip4: "واقعية",
+                about_title: "مين أنا؟✨",
+                about_text: "أنا شمعةٌ تُضيءُ القريبين، إنسان يحب الإتقان… لا يرضى بأنصاف الأمور.<br><br>ميزان من ثبات، يحمل المسؤولية كأنها قدر.<br><br>صمتي عميق، وفعلي أوضح من الكلام.<br><br>منظم كأن الزمن يسير على إيقاعي.<br><br>أحب البساطة… وأبحث عن الصدق في كل شيء.",
+                projects_title: "أفضل مشاريعي 😎",
+                project_title1: "موقع وزارة الخارجية السورية",
+                project_text1: "موقع يحاكي وزارة الخارجية السورية، يعرض معلومات حول الوزارة وخدماتها.",
+                project_link1: "زيارة الموقع",
+                countdown_title: "العد التنازلي لميلادي 🎉",
+                days_label: "أيام",
+                hours_label: "ساعات",
+                minutes_label: "دقائق",
+                seconds_label: "ثوانٍ"
+            },
+            nl: {
+                profile_name: "Mohammad Abdullah",
+                profile_title: "Front-end ontwikkelaar, student en atleet",
+                hero_title: "Mohammad Ashraf Mahmoud Talab Abdullah Al-Rifai Al-Hashemi Al-Sharif",
+                chip1: "Omgaan met druk",
+                chip2: "Organisatie",
+                chip3: "Sportliefhebber",
+                chip4: "Realistisch",
+                about_title: "Wie ben ik?✨",
+                about_text: "Ik ben een kaars die de naasten verlicht, een persoon die van perfectie houdt... accepteert geen half werk.<br><br>Een balans van standvastigheid, draagt verantwoordelijkheid alsof het lotsbestemming is.<br><br>Mijn stilte is diep, en mijn acties spreken duidelijker dan woorden.<br><br>Georganiseerd alsof de tijd op mijn ritme loopt.<br><br>Ik hou van eenvoud... en zoek naar oprechtheid in alles.",
+                projects_title: "Mijn beste projecten 😎",
+                project_title1: "Syrische Ministerie van Buitenlandse Zaken Website",
+                project_text1: "Een website die het Syrische Ministerie van Buitenlandse Zaken nabootst, met informatie over het ministerie en zijn diensten.",
+                project_link1: "Bezoek website",
+                countdown_title: "Aftellen naar mijn verjaardag 🎉",
+                days_label: "Dagen",
+                hours_label: "Uren",
+                minutes_label: "Minuten",
+                seconds_label: "Seconden"
+            }
+        };
 
-// كائن الترجمات
-const translations = {
-    'ar': {
-        nav_about: 'من انا؟',
-        nav_skills: 'مهاراتي',
-        nav_projects: 'مشاريعي',
-        nav_certificates: 'شهاداتي',
-        nav_contact: 'تواصل معي',
-        hero_name: 'مُحَمَّد عبد الله',
-        hero_tittle: 'مطور واجهات امامية',
-        hero_description: 'طالب ابلغ من العمر 16 ربيعا, مطور واجهات امامية و رياضي اؤمن بأن البساطة اهم من اي شيء',
-        view_projects: 'مشاهدة المشاريع',
-        contact_me: 'تواصل معي',
-        hero_role: 'مطور واجهة امامي و رياضي',
-        age: 'العمر',
-        experience: 'سنوات خبرة',
-        projects: 'مشروع',
-        skills_tittle: 'مهاراتي',
-        skills_subtitle: 'مجموعة المهارات الي عندي من خلال االبرمجة',
-        frontend_title: 'تطوير الواجهات الامامية',
-        frontend_desc: 'تطوير واجهات مواقع تفاعلية وسريعة',
-        design_title: 'تصميم واجهات المستخدم',
-        design_desc: 'انشاء تصاميم حديثة وجذابة',
-        projects_tittle: 'مشاريعي',
-        projects_subtitle: 'استعرض بعض المشاريع التي عملت عليها',
-        project1_title: 'موقع يشابه الوزارة الخارجية السورية',
-        completed: 'مكتمل',
-        project1_desc: 'موقع ويب رسمي للحكومة السورية',
-        view_project: 'عرض المشروع',
-        project2_title: 'تهنئة عيد الأضحى',
-        project2_desc: 'موقع ويب بسيط لتهنئة عيد الأضحى المبارك',
-        project3_title: 'الخلود الرقمي',
-        in_progress: 'قيد التطوير',
-        project3_desc: 'منصة لتخليد الذكريات بطريقة رقمية حديثة وإنسانية',
-        certificates_tittle: 'شهاداتي',
-        certificates_subtitle: 'استعرض بعض الشهادات التي حصلت عليها',
-        cert1_title: 'دورة htm5',
-        cert1_org: 'أكاديمية شيار',
-        cert2_title: 'دورة css3',
-        cert2_org: 'أكاديمية شيار',
-        cert3_title: 'عدة دورات عن سلامة وامن المتاجر',
-        cert3_org: 'Poiesz',
-        contact_title: 'تواصل معي',
-        contact_subtitle: 'انا متاح دائما للعمل على مشاريع جديدة',
-        contact_text: 'هل لديك مشروع في ذهنك؟ دعنا نعمل معًا لتحويله إلى حقيقة!',
-        // أضف المزيد من الترجمات هنا
-    },
-    'nl': {
-        nav_about: 'Over mij',
-        nav_skills: 'Mijn vaardigheden',
-        nav_projects: 'Mijn projecten',
-        nav_certificates: 'Mijn certificaten',
-        nav_contact: 'Neem contact op',
-        hero_name: 'Mohammad Abdullah',
-        hero_tittle: 'Frontend Ontwikkelaar',
-        hero_description: 'Een 16-jarige student, frontend ontwikkelaar en atleet. Ik geloof dat eenvoud belangrijker is dan wat dan ook.',
-        view_projects: 'Bekijk projecten',
-        contact_me: 'Neem contact met mij op',
-        hero_role: 'Frontend Ontwikkelaar & Atleet',
-        age: 'Leeftijd',
-        experience: 'Jaren ervaring',
-        projects: 'Projecten',
-        skills_tittle: 'Mijn vaardigheden',
-        skills_subtitle: 'De vaardigheden die ik heb opgedaan door programmeren',
-        frontend_title: 'Frontend Ontwikkeling',
-        frontend_desc: 'Ontwikkeling van interactieve en snelle webinterfaces',
-        design_title: 'UI Ontwerp',
-        design_desc: 'Creëren van moderne en aantrekkelijke ontwerpen',
-        projects_tittle: 'Mijn projecten',
-        projects_subtitle: 'Bekijk enkele projecten waaraan ik heb gewerkt',
-        project1_title: 'Website vergelijkbaar met het Syrische Ministerie van Buitenlandse Zaken',
-        completed: 'Voltooid',
-        project1_desc: 'Officiële website voor de Syrische regering',
-        view_project: 'Bekijk project',
-        project2_title: 'Eid al-Adha felicitatie',
-        project2_desc: 'Een eenvoudige website om Eid al-Adha te feliciteren',
-        project3_title: 'Digitale Onsterfelijkheid',
-        in_progress: 'In ontwikkeling',
-        project3_desc: 'Een platform om herinneringen op een moderne en humane digitale manier te vereeuwigen',
-        certificates_tittle: 'Mijn certificaten',
-        certificates_subtitle: 'Bekijk enkele certificaten die ik heb behaald',
-        cert1_title: 'HTML5 Cursus',
-        cert1_org: 'Shayar Academy',
-        cert2_title: 'CSS3 Cursus',
-        cert2_org: 'Shayar Academy',
-        cert3_title: 'Verschillende cursussen over winkelveiligheid en beveiliging',
-        cert3_org: 'Poiesz',
-        contact_title: 'Neem contact met mij op',
-        contact_subtitle: 'Ik ben altijd beschikbaar voor nieuwe projecten',
-        contact_text: 'Heeft u een project in gedachten? Laten we samenwerken om het werkelijkheid te maken!',
-        // أضف المزيد من الترجمات هنا
-    }
-};
-
-function setLanguage(lang) {
-    document.querySelectorAll('[data-lang]').forEach(element => {
-        const key = element.getAttribute('data-lang');
-        if (translations[lang] && translations[lang][key]) {
-            element.textContent = translations[lang][key];
+        // دالة تبديل اللغة
+        function switchLanguage(lang) {
+            // تغيير اتجاه الصفحة
+            document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+            document.documentElement.setAttribute('lang', lang);
+            
+            // تحديث جميع العناصر التي تحتوي على data-lang
+            document.querySelectorAll('[data-lang]').forEach(element => {
+                const key = element.getAttribute('data-lang');
+                if (translations[lang][key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.value = translations[lang][key];
+                    } else {
+                        element.innerHTML = translations[lang][key];
+                    }
+                }
+            });
+            
+            // حفظ اللغة المختارة
+            localStorage.setItem('selectedLang', lang);
+            
+            // إخفاء القائمة
+            document.getElementById('languageMenu').classList.remove('show');
         }
-    });
-    currentLanguage = lang;
-    // تحديث نص زر تبديل اللغة
-    languageToggleBtn.querySelector('span').textContent = lang === 'ar' ? 'العربية|NL' : 'NL|العربية';
-    // تحديث اتجاه الصفحة
-    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-}
 
-// تبديل اللغة عند النقر على الزر
-languageToggleBtn.addEventListener('click', () => {
-    const newLang = currentLanguage === 'ar' ? 'nl' : 'ar';
-    setLanguage(newLang);
-});
+        // باقي الكود الأصلي للعد التنازلي
+        const targetDate = new Date("2025-12-22T00:00:00").getTime();
 
-// تعيين اللغة الافتراضية عند تحميل الصفحة
-document.addEventListener('DOMContentLoaded', () => {
-    setLanguage(currentLanguage);
-});
+        function updateCountdown() {
+          const now = new Date().getTime();
+          const diff = targetDate - now;
 
-// Fade-in effect for sections
-const faders = document.querySelectorAll('.fade-in');
-
-const appearOptions = {
-    threshold: 0.1,
-    rootMargin: "0px 0px -50px 0px"
-};
-
-const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
-    entries.forEach(entry => {
-        if (!entry.isIntersecting) {
+          if (diff <= 0) {
+            const countdownElement = document.getElementById("birthday-countdown");
+            if (countdownElement) {
+                const savedLang = localStorage.getItem('selectedLang') || 'ar';
+                const message = savedLang === 'ar' ? 
+                    "<h2>عيد ميلاد سعيد 🥳🎂</h2>" : 
+                    "<h2>Gelukkige verjaardag 🥳🎂</h2>";
+                countdownElement.innerHTML = message;
+            }
             return;
-        } else {
-            entry.target.classList.add('appear');
-            appearOnScroll.unobserve(entry.target);
-        }
-    });
-}, appearOptions);
+          }
 
-faders.forEach(fader => {
-    appearOnScroll.observe(fader);
-});
+          const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+          document.getElementById("days").innerText = days;
+          document.getElementById("hours").innerText = hours;
+          document.getElementById("minutes").innerText = minutes;
+          document.getElementById("seconds").innerText = seconds;
+        }
+
+        // تحديث كل ثانية
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
